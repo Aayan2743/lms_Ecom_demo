@@ -35,10 +35,10 @@ const faqData = [
     icon: Package,
     color: "from-purple-500 to-indigo-600",
     faqs: [
-      { q: "Are the silk sarees authentic?", a: "Absolutely. All our Kanchipuram, Banarasi, and Chanderi silk sarees come with an official Silk Mark certification ensuring 100% purity and authenticity. Each saree includes a certification tag." },
-      { q: "Do you provide custom blouse stitching?", a: "Yes, we provide premium custom tailoring services. Once you place an order, you can contact our support team on WhatsApp with your Order ID to share your measurements. Stitching takes 3-4 working days." },
-      { q: "How do I know my correct size for Kurtas?", a: "We have a detailed 'Size Guide' available in our website's footer. It provides exact chest, waist, and length measurements. You can also chat with our stylists for personalized sizing advice." },
-      { q: "How should I wash my ethnic wear?", a: "For all our pure silk sarees, heavy zari dupattas, and premium fabrics, we highly recommend 'Dry Clean Only' to maintain the fabric's shine and longevity. Cotton items can be gently hand washed." }
+      { q: "Are the silk fabrics authentic?", a: "Absolutely. All our Kanchipuram, Banarasi, and Chanderi silk fabrics come with an official Silk Mark certification ensuring 100% purity and authenticity. Each fabric comes with a certification tag." },
+      { q: "Do you provide custom cutting services?", a: "Yes, we provide custom cutting services. You can specify your required length during checkout or contact our support team on WhatsApp with your Order ID for custom requirements." },
+      { q: "How do I know the right fabric for my project?", a: "We have a detailed 'Fabric Care Guide' available in our website's footer. It provides information about each fabric type, its best uses, and care instructions. You can also chat with our fabric experts for personalized advice." },
+      { q: "How should I care for my fabrics?", a: "For all our pure silk fabrics, we highly recommend 'Dry Clean Only' to maintain the fabric's shine and longevity. Cotton and linen items can be gently hand washed or machine washed on delicate cycle." }
     ]
   },
   {
@@ -58,13 +58,13 @@ const faqData = [
 const popularQuestions = [
   "How to track my order?",
   "What is the return policy?",
-  "Are silk sarees authentic?",
+  "Are silk fabrics authentic?",
   "Do you ship internationally?"
 ];
 
 // Trust badges
 const trustBadges = [
-  { icon: Award, title: "Silk Mark Certified", desc: "100% Authentic" },
+  { icon: Award, title: "Silk Mark Certified", desc: "100% Authentic Fabrics" },
   { icon: Truck, title: "Free Shipping", desc: "Above ₹999" },
   { icon: RefreshCw, title: "Easy Returns", desc: "7-day policy" },
   { icon: Shield, title: "Secure Payment", desc: "256-bit SSL" }

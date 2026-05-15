@@ -5,30 +5,30 @@ import heroBanner from "@/assets/hero-banner.jpg";
 
 const slides = [
   {
-    image: heroBanner, 
+    image: "https://i.pinimg.com/736x/56/14/81/561481cdf44e31905ab2760bbd033202.jpg", 
     tag: "New Collection 2026",
-    titleLine1: "Timeless",
-    titleLine2: "Elegance",
-    subtitle: "Discover our handcrafted collection of premium sarees, fabrics & ethnic wear.",
+    titleLine1: "Premium",
+    titleLine2: "Fabrics",
+    subtitle: "Discover our handpicked collection of silk, cotton, linen & designer fabrics.",
     link: "/shop",
     btnText: "Shop Now"
   },
   {
-    image: "https://i.pinimg.com/736x/f9/04/34/f90434c1a5c20058e8ef2e72123c40aa.jpg", 
-    tag: "Bridal Special",
-    titleLine1: "Wedding",
-    titleLine2: "Collection",
-    subtitle: "Make your special day unforgettable with our exclusive bridal range.",
-    link: "/shop",
-    btnText: "Explore Bridal"
+    image: "https://i.pinimg.com/1200x/5c/ba/ae/5cbaaec476c9984024ed212a5138b74d.jpg", 
+    tag: "Handloom Special",
+    titleLine1: "Artisan",
+    titleLine2: "Crafted",
+    subtitle: "Authentic handwoven fabrics sourced directly from weavers across India.",
+    link: "/cotton-fabrics",
+    btnText: "Explore Handloom"
   },
   {
-    image: "https://i.pinimg.com/736x/4c/11/a0/4c11a04596af47c006dc20b82b42d33e.jpg", 
+    image: "https://i.pinimg.com/736x/c0/ff/35/c0ff355a86cc81c4382a00c33e9379d4.jpg", 
     tag: "Limited Time Offer",
     titleLine1: "Flat 30%",
     titleLine2: "OFF",
-    subtitle: "On all silk sarees this festive season. Don't miss out!",
-    link: "/shop",
+    subtitle: "On all silk fabrics this season. Premium quality at unbeatable prices!",
+    link: "/silk-fabrics",
     btnText: "Grab Deal"
   }
 ];
@@ -71,7 +71,7 @@ const HeroSection = () => {
         >
           <img 
             src={slide.image} 
-            alt="Elegant traditional collection" 
+            alt="Premium fabric collection" 
             className="w-full h-full object-cover" 
           />
         </div>
@@ -102,38 +102,32 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* LEFT ARROW - Transparent */}
-      <button
+      {/* Navigation Arrows */}
+      <button 
         onClick={goToPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white/70 hover:text-white transition"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-card/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-card/40"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
       </button>
-
-      {/* RIGHT ARROW - Transparent */}
-      <button
+      <button 
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white/70 hover:text-white transition"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-card/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-card/40"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
       </button>
 
-      {/* DOTS - Small realistic */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-        {slides.map((_, index) => (
+      {/* Dots */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {slides.map((_, i) => (
           <button
-            key={index}
-            onClick={() => {
-              setCurrentSlide(index);
-              startSlider();
-            }}
-            className={`w-2 h-2 rounded-full transition ${
-              currentSlide === index ? "bg-white" : "bg-white/40"
+            key={i}
+            onClick={() => { setCurrentSlide(i); startSlider(); }}
+            className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${
+              currentSlide === i ? 'bg-primary w-6 md:w-8' : 'bg-primary-foreground/50 hover:bg-primary-foreground/80'
             }`}
           />
         ))}
       </div>
-
     </section>
   );
 };

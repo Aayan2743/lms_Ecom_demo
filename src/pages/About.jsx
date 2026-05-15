@@ -44,59 +44,59 @@ const About = () => {
 
   // Mission & Values
   const values = [
-    { 
-      icon: Award, 
-      title: "Authenticity", 
-      desc: "100% genuine handloom products sourced directly from artisans",
+    {
+      icon: Award,
+      title: "Authenticity",
+      desc: "100% genuine fabrics sourced directly from weavers and mills",
       color: "from-amber-500 to-orange-600"
     },
-    { 
-      icon: Heart, 
-      title: "Craftsmanship", 
-      desc: "Supporting over 500+ skilled weavers and their families",
+    {
+      icon: Heart,
+      title: "Craftsmanship",
+      desc: "Supporting over 500+ skilled artisans and their families",
       color: "from-rose-500 to-pink-600"
     },
-    { 
-      icon: Shield, 
-      title: "Quality", 
-      desc: "Rigorous quality checks ensuring premium standards",
+    {
+      icon: Shield,
+      title: "Quality",
+      desc: "Rigorous quality checks ensuring premium fabric standards",
       color: "from-blue-500 to-cyan-600"
     },
-    { 
-      icon: Globe, 
-      title: "Sustainability", 
-      desc: "Eco-friendly practices and ethical sourcing",
+    {
+      icon: Globe,
+      title: "Sustainability",
+      desc: "Eco-friendly practices and ethical fabric sourcing",
       color: "from-green-500 to-emerald-600"
     }
   ];
 
   // Team Members
   const team = [
-    { name: "Lakshmi Narayana", role: "Founder & Master Weaver", image: "https://i.pinimg.com/736x/5b/1e/a9/5b1ea94e36f3c891a8b80bda5f0c0046.jpg", experience: "35+ years" },
+    { name: "Lakshmi Narayana", role: "Founder & Textile Expert", image: "https://i.pinimg.com/736x/5b/1e/a9/5b1ea94e36f3c891a8b80bda5f0c0046.jpg", experience: "35+ years" },
     { name: "Meera Reddy", role: "Creative Director", image: "https://i.pinimg.com/1200x/c3/34/09/c334099bf91529cb90d9c1cb86790bd5.jpg", experience: "15+ years" },
-    { name: "Arjun Sharma", role: "Head of Design", image: "https://i.pinimg.com/736x/88/e3/18/88e3189b3f48c5aa036f422382aac976.jpg", experience: "12+ years" },
+    { name: "Arjun Sharma", role: "Head of Sourcing", image: "https://i.pinimg.com/736x/88/e3/18/88e3189b3f48c5aa036f422382aac976.jpg", experience: "12+ years" },
     { name: "Priya Kapoor", role: "Customer Experience", image: "https://i.pinimg.com/736x/8e/1f/38/8e1f38a2c226f46854a9f6921eea450c.jpg", experience: "10+ years" }
   ];
 
   // Testimonials
   const testimonials = [
-    { 
-      text: "The quality of their Kanchipuram sarees is unmatched. I've been a loyal customer for over a decade!", 
-      name: "Anjali Sharma", 
+    {
+      text: "The quality of their silk fabrics is unmatched. I've been sourcing from them for my boutique for over a decade!",
+      name: "Anjali Sharma",
       location: "Mumbai",
       rating: 5,
       image: "https://i.pinimg.com/736x/8e/1f/38/8e1f38a2c226f46854a9f6921eea450c.jpg"
     },
-    { 
-      text: "LM Showroom has the finest collection of handloom fabrics. Their customer service is exceptional!", 
-      name: "Priya Menon", 
+    {
+      text: "FabricForever has the finest collection of handloom cotton. Their customer service is exceptional!",
+      name: "Priya Menon",
       location: "Chennai",
       rating: 5,
       image: "https://i.pinimg.com/736x/8e/1f/38/8e1f38a2c226f46854a9f6921eea450c.jpg"
     },
-    { 
-      text: "I found my dream wedding saree here. The customization options made it truly special.", 
-      name: "Kavita Reddy", 
+    {
+      text: "I found the perfect fabric for my wedding lehenga here. The quality and variety are truly special.",
+      name: "Kavita Reddy",
       location: "Bangalore",
       rating: 5,
       image: "https://i.pinimg.com/736x/8e/1f/38/8e1f38a2c226f46854a9f6921eea450c.jpg"

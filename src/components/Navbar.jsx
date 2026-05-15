@@ -3,93 +3,93 @@ import { Link, useNavigate } from "react-router-dom";
 import { Search, User, Heart, ShoppingCart, Menu, X, Phone, Mail, ChevronDown, Trash2, Check, Truck, MapPin, Package, Shield, LogOut, CreditCard } from "lucide-react"; 
 import { useShop } from "../ShopContext.jsx"; 
 
-// 🔥 NAVLINKS ARRAY WITH CORRECT PATHS USING URL PARAMETERS
+// 🔥 NAVLINKS ARRAY - FABRIC STORE
 const navLinks = [
   { 
-    label: "Sarees", path: "/sarees", hasDropdown: true,
+    label: "Silk Fabrics", path: "/silk-fabrics", hasDropdown: true,
     dropdownContent: {
       columns:[
-        { title: "Shop by Fabric", links:[ 
-          { name: "Silk Sarees", category: "Silk", path: "/sarees", badge: "Premium" }, 
-          { name: "Cotton Sarees", category: "Cotton", path: "/sarees" }, 
-          { name: "Organza Sarees", category: "Organza", path: "/sarees", badge: "Trending" }, 
-          { name: "Georgette Sarees", category: "Georgette", path: "/sarees" }, 
-          { name: "Chiffon Sarees", category: "Chiffon", path: "/sarees" }, 
-          { name: "Tissue Sarees", category: "Tissue", path: "/sarees", badge: "New" } 
+        { title: "Shop by Type", links:[ 
+          { name: "Kanchipuram Silk", category: "Silk", path: "/silk-fabrics", badge: "Premium" }, 
+          { name: "Banarasi Silk", category: "Banarasi Silk", path: "/silk-fabrics" }, 
+          { name: "Raw Silk", category: "Raw Silk", path: "/silk-fabrics", badge: "Trending" }, 
+          { name: "Tussar Silk", category: "Tussar Silk", path: "/silk-fabrics" }, 
+          { name: "Mysore Silk", category: "Mysore Silk", path: "/silk-fabrics" }, 
+          { name: "Dola Silk", category: "Dola Silk", path: "/silk-fabrics", badge: "New" } 
         ] },
-        { title: "Shop by Occasion", links:[ 
-          { name: "Bridal Collection", category: "Wedding", path: "/sarees", badge: "🔥 Hot" }, 
-          { name: "Party Wear", category: "Party", path: "/sarees" }, 
-          { name: "Festival Special", category: "Festival", path: "/sarees" }, 
-          { name: "Casual Wear", category: "Casual", path: "/sarees" }, 
-          { name: "Office Wear", category: "Office", path: "/sarees" }, 
-          { name: "Reception", category: "Reception", path: "/sarees" } 
+        { title: "Shop by Use", links:[ 
+          { name: "Bridal Silk", category: "Wedding", path: "/silk-fabrics", badge: "🔥 Hot" }, 
+          { name: "Party Wear Silk", category: "Party", path: "/silk-fabrics" }, 
+          { name: "Festival Silk", category: "Festival", path: "/silk-fabrics" }, 
+          { name: "Saree Blouse Silk", category: "Blouse", path: "/silk-fabrics" }, 
+          { name: "Lehenga Silk", category: "Lehenga", path: "/silk-fabrics" }, 
+          { name: "Dress Silk", category: "Dress", path: "/silk-fabrics" } 
         ] },
         { title: "Featured", links:[ 
-          { name: "New Arrivals", category: "New Arrival", path: "/sarees", badge: "✨ New" }, 
-          { name: "Bestsellers", category: "Bestseller", path: "/sarees", badge: "🏆 Best" }, 
-          { name: "Trending Now", category: "Trending", path: "/sarees", badge: "📈 Trending" }, 
-          { name: "Limited Edition", category: "Limited", path: "/sarees", badge: "⏰ Limited" }, 
-          { name: "Under ₹999", category: "under-999", path: "/sarees", badge: "💰 Deal" } 
+          { name: "New Arrivals", category: "New Arrival", path: "/silk-fabrics", badge: "✨ New" }, 
+          { name: "Bestsellers", category: "Bestseller", path: "/silk-fabrics", badge: "🏆 Best" }, 
+          { name: "Trending Now", category: "Trending", path: "/silk-fabrics", badge: "📈 Trending" }, 
+          { name: "Limited Edition", category: "Limited", path: "/silk-fabrics", badge: "⏰ Limited" }, 
+          { name: "Under ₹999", category: "under-999", path: "/silk-fabrics", badge: "💰 Deal" } 
         ] }
       ],
-      featuredImage: { url: "https://in.kalkifashion.com/cdn/shop/files/embroidered-saree-menu.jpg?v=5239106531695380492", title: "Premium Silk Collection", subtitle: "Starting at ₹4,999", link: "/sarees" }
+      featuredImage: { url: "https://i.pinimg.com/736x/56/14/81/561481cdf44e31905ab2760bbd033202.jpg", title: "Premium Silk Collection", subtitle: "Starting at ₹599/meter", link: "/silk-fabrics" }
     }
   },
   { 
-    label: "Products", path: "/shop", hasDropdown: true,
+    label: "Fabrics", path: "/shop", hasDropdown: true,
     dropdownContent: {
       columns:[
-        { title: "Women's Wear", links:[ 
-          { name: "Sarees", category: "Sarees", path: "/sarees" }, 
-          { name: "Kurtas", category: "Kurtas", path: "/kurtas", badge: "Bestseller" }, 
-          { name: "Dupattas", category: "Dupattas", path: "/dupattas" }, 
-          { name: "Lehengas", path: "/lehengas", badge: "Premium" }, 
-          { name: "Salwar Suits", path: "/salwar-suits" }, 
-          { name: "Gowns", path: "/gowns" } 
+        { title: "Natural Fabrics", links:[ 
+          { name: "Cotton Fabrics", category: "Cotton Fabrics", path: "/cotton-fabrics" }, 
+          { name: "Linen Fabrics", category: "Linen Fabrics", path: "/linen-fabrics", badge: "Bestseller" }, 
+          { name: "Silk Fabrics", category: "Silk Fabrics", path: "/silk-fabrics" }, 
+          { name: "Wool Fabrics", path: "/wool-fabrics", badge: "Premium" }, 
+          { name: "Jute Fabrics", path: "/jute-fabrics" }, 
+          { name: "Hemp Fabrics", path: "/hemp-fabrics" } 
         ] },
-        { title: "Men's Wear", links:[ 
-          { name: "Kurtas", category: "Kurtas", path: "/kurtas" }, 
-          { name: "Sherwanis", path: "/men/sherwanis", badge: "Wedding" }, 
-          { name: "Ethnic Sets", path: "/men/ethnic-sets" }, 
-          { name: "Jodhpuri", path: "/men/jodhpuri" } 
+        { title: "Synthetic Fabrics", links:[ 
+          { name: "Georgette", category: "Georgette Fabrics", path: "/georgette-fabrics" }, 
+          { name: "Chiffon", category: "Chiffon Fabrics", path: "/chiffon-fabrics", badge: "Trending" }, 
+          { name: "Organza", category: "Organza Fabrics", path: "/organza-fabrics" }, 
+          { name: "Crepe", category: "Crepe Fabrics", path: "/crepe-fabrics" } 
         ] },
-        { title: "Accessories", links:[ 
-          { name: "Jewelry", path: "/jewelry" }, 
-          { name: "Bags", path: "/bags" }, 
-          { name: "Footwear", path: "/footwear" }, 
-          { name: "Stoles", path: "/stoles" } 
+        { title: "Special Fabrics", links:[ 
+          { name: "Velvet Fabrics", path: "/velvet-fabrics" }, 
+          { name: "Net Fabrics", path: "/net-fabrics" }, 
+          { name: "Satin Fabrics", path: "/satin-fabrics" }, 
+          { name: "Denim Fabrics", path: "/denim-fabrics" } 
         ] }
       ],
-      featuredImage: { url: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=300&h=400&fit=crop", title: "New Collection 2026", subtitle: "Shop Now", link: "/new-arrivals" }
+      featuredImage: { url: "https://i.pinimg.com/736x/c0/ff/35/c0ff355a86cc81c4382a00c33e9379d4.jpg", title: "New Collection 2026", subtitle: "Shop Now", link: "/new-arrivals" }
     }
   },
   { 
     label: "Categories", path: "/categories", hasDropdown: true,
     dropdownContent: {
       columns:[
-        { title: "Ethnic Wear", links:[ 
-          { name: "Sarees", category: "Sarees", path: "/sarees" }, 
-          { name: "Kurtas & Kurtis", category: "Kurtas", path: "/kurtas" }, 
-          { name: "Lehengas", path: "/lehengas" }, 
-          { name: "Salwar Kameez", path: "/salwar-kameez" }, 
-          { name: "Anarkali", path: "/anarkali" } 
+        { title: "By Fabric Type", links:[ 
+          { name: "Silk Fabrics", category: "Silk Fabrics", path: "/silk-fabrics" }, 
+          { name: "Cotton Fabrics", category: "Cotton Fabrics", path: "/cotton-fabrics" }, 
+          { name: "Linen Fabrics", category: "Linen Fabrics", path: "/linen-fabrics" }, 
+          { name: "Georgette Fabrics", category: "Georgette Fabrics", path: "/georgette-fabrics" }, 
+          { name: "Organza Fabrics", category: "Organza Fabrics", path: "/organza-fabrics" } 
         ] },
-        { title: "Fabrics", links:[ 
-          { name: "Silk Fabric", category: "Silk", path: "/fabrics", badge: "Premium" }, 
-          { name: "Cotton Fabric", category: "Cotton", path: "/fabrics" }, 
-          { name: "Chiffon", category: "Chiffon", path: "/fabrics" }, 
-          { name: "Georgette", category: "Georgette", path: "/fabrics" }, 
-          { name: "Organza", category: "Organza", path: "/fabrics" } 
+        { title: "By Print/Work", links:[ 
+          { name: "Block Print", category: "Block Print", path: "/cotton-fabrics", badge: "Premium" }, 
+          { name: "Kalamkari", category: "Kalamkari", path: "/cotton-fabrics" }, 
+          { name: "Ikat", category: "Ikat", path: "/cotton-fabrics" }, 
+          { name: "Chikankari", category: "Chikankari", path: "/cotton-fabrics" }, 
+          { name: "Phulkari", category: "Phulkari", path: "/cotton-fabrics" } 
         ] },
-        { title: "Occasion", links:[ 
-          { name: "Wedding", path: "/occasion/wedding" }, 
-          { name: "Festival", path: "/occasion/festival" }, 
-          { name: "Party", path: "/occasion/party" }, 
-          { name: "Casual", path: "/occasion/casual" } 
+        { title: "By Occasion", links:[ 
+          { name: "Wedding Fabrics", path: "/occasion/wedding" }, 
+          { name: "Festival Fabrics", path: "/occasion/festival" }, 
+          { name: "Party Wear Fabrics", path: "/occasion/party" }, 
+          { name: "Casual Fabrics", path: "/occasion/casual" } 
         ] }
       ],
-      featuredImage: { url: "https://in.kalkifashion.com/cdn/shop/files/250x350-desk-indo-fusion-styles-18-02-26_80a71954-4c84-4afa-bf4d-c8cefa4582bf.jpg?v=1772871706&width=235", title: "Festive Collection", subtitle: "Up to 40% OFF", link: "/festive-collection" }
+      featuredImage: { url: "https://i.pinimg.com/1200x/5c/ba/ae/5cbaaec476c9984024ed212a5138b74d.jpg", title: "Handloom Collection", subtitle: "Up to 40% OFF", link: "/cotton-fabrics" }
     }
   },
   { 
@@ -103,20 +103,20 @@ const navLinks = [
           { name: "New Arrivals", path: "/featured/new", badge: "✨ New" }, 
           { name: "Coming Soon", path: "/featured/coming-soon" } 
         ] },
-        { title: "Designer Collections", links:[ 
+        { title: "Designer Fabrics", links:[ 
           { name: "Premium Silk", path: "/collections/premium-silk" }, 
-          { name: "Bridal Edit", path: "/collections/bridal", badge: "👰 Bridal" }, 
+          { name: "Bridal Fabrics", path: "/collections/bridal", badge: "👰 Bridal" }, 
           { name: "Festive Special", path: "/collections/festive" }, 
           { name: "Summer Collection", path: "/collections/summer" } 
         ] },
         { title: "Offers", links:[ 
           { name: "Clearance Sale", path: "/sale/clearance", badge: "🔥 50% OFF" }, 
-          { name: "Buy 1 Get 1", path: "/offers/bogo", badge: "🎁 BOGO" }, 
+          { name: "Buy 2 Get 1", path: "/offers/bogo", badge: "🎁 B2G1" }, 
           { name: "Combo Offers", path: "/offers/combo" }, 
           { name: "First Order 30% OFF", path: "/offers/first-order", badge: "🆕 New User" } 
         ] }
       ],
-      featuredImage: { url: "https://in.kalkifashion.com/cdn/shop/files/250x350-desk-exclusive-collections-23-03-26.jpg?v=1774257770&width=235", title: "Limited Time Offer", subtitle: "Flat 30% OFF", link: "/offers" }
+      featuredImage: { url: "https://i.pinimg.com/736x/38/de/80/38de8036daff2e913e5769671989e6ad.jpg", title: "Limited Time Offer", subtitle: "Flat 30% OFF", link: "/offers" }
     }
   },
   { 
@@ -135,12 +135,12 @@ const navLinks = [
           { name: "Most Reviewed", path: "/reviews/most-reviewed" } 
         ] },
         { title: "Community", links:[ 
-          { name: "Style Stories", path: "/community/stories" }, 
+          { name: "Fabric Stories", path: "/community/stories" }, 
           { name: "Lookbook", path: "/community/lookbook" }, 
-          { name: "Share Your Style", path: "/community/share", badge: "📸 Share" } 
+          { name: "Share Your Creation", path: "/community/share", badge: "📸 Share" } 
         ] }
       ],
-      featuredImage: { url: "https://in.kalkifashion.com/cdn/shop/files/250x350-desk-salwar-kameez-18-02-26.jpg?v=1771497859&width=235", title: "Customer Favorites", subtitle: "See what's trending", link: "/reviews/favorites" }
+      featuredImage: { url: "https://i.pinimg.com/1200x/c1/70/8c/c1708cb21db4bcc9f47b7d696a3686a6.jpg", title: "Customer Favorites", subtitle: "See what's trending", link: "/reviews/favorites" }
     }
   },
   { 
@@ -148,23 +148,23 @@ const navLinks = [
     dropdownContent: {
       columns:[
         { title: "Collections", links:[ 
-          { name: "Bridal Gallery", path: "/gallery/bridal" }, 
-          { name: "Festive Looks", path: "/gallery/festive" }, 
-          { name: "Casual Styles", path: "/gallery/casual" }, 
-          { name: "Celebrity Looks", path: "/gallery/celebrity", badge: "🌟 Trending" } 
+          { name: "Silk Gallery", path: "/gallery/silk" }, 
+          { name: "Cotton Gallery", path: "/gallery/cotton" }, 
+          { name: "Linen Gallery", path: "/gallery/linen" }, 
+          { name: "Designer Fabrics", path: "/gallery/designer", badge: "🌟 Trending" } 
         ] },
         { title: "Behind the Scenes", links:[ 
-          { name: "Craftsmanship", path: "/gallery/craft" }, 
+          { name: "Weaving Process", path: "/gallery/weaving" }, 
           { name: "Fabric Making", path: "/gallery/fabric" }, 
           { name: "Design Process", path: "/gallery/design" } 
         ] },
         { title: "Social", links:[ 
           { name: "Instagram Feed", path: "/gallery/instagram" }, 
-          { name: "Customer Looks", path: "/gallery/customers", badge: "#LMStyle" }, 
+          { name: "Customer Creations", path: "/gallery/customers", badge: "#FabricForever" }, 
           { name: "Video Gallery", path: "/gallery/videos" } 
         ] }
       ],
-      featuredImage: { url: "https://in.kalkifashion.com/cdn/shop/files/bridal-saree-menu.jpg?v=3865592706081764068", title: "Visual Stories", subtitle: "Explore our gallery", link: "/gallery/stories" }
+      featuredImage: { url: "https://i.pinimg.com/1200x/3e/94/bf/3e94bfa75c58740cdae2975e9ff98e81.jpg", title: "Visual Stories", subtitle: "Explore our gallery", link: "/gallery/stories" }
     }
   }
 ];
@@ -185,13 +185,10 @@ const Navbar = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   const navigate = useNavigate();
-  // ✅ STEP 2: Get user and logout from context
   const { cart, wishlist, removeFromCart, updateQuantity, user, logout } = useShop();
-  
-  // ✅ STEP 3: Remove isLoggedIn state - use user directly
 
-  const allProducts = ["Saree", "Silk Saree", "Banarasi Saree", "Kanjeevaram Saree", "Organza Saree", "Lehenga", "Kurta", "Dupatta", "Blouse", "Jewellery", "Party Wear"];
-  const searchPhrases = ["What's trending for Mehendi?", "Search for Banarasi Sarees...", "Latest Bridal Lehengas...", "Designer Kurtas for Men..."];
+  const allProducts = ["Silk Fabric", "Cotton Fabric", "Linen Fabric", "Georgette", "Organza", "Chiffon", "Velvet", "Crepe", "Kalamkari", "Block Print", "Ikat"];
+  const searchPhrases = ["Search for Silk Fabrics...", "Find Cotton Handlooms...", "Latest Linen Collection...", "Premium Organza Fabrics..."];
 
   // ✅ Function to handle dropdown link click - navigates with URL parameter
   const handleDropdownClick = (item, linkPath) => {
@@ -203,401 +200,402 @@ const Navbar = () => {
     setActiveDropdown(null);
   };
 
+  // ✅ Typing animation for search placeholder
   useEffect(() => {
     const currentPhrase = searchPhrases[typingIndex];
-    let timer;
-
-    if (searchOpen) {
-      if (isDeleting) {
-        timer = setTimeout(() => {
-          setPlaceholder(currentPhrase.substring(0, charIndex - 1));
-          setCharIndex(prev => prev - 1);
-        }, 50);
-      } else {
-        timer = setTimeout(() => {
-          setPlaceholder(currentPhrase.substring(0, charIndex + 1));
-          setCharIndex(prev => prev + 1);
-        }, 100);
-      }
-
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        timer = setTimeout(() => setIsDeleting(true), 1500); 
-      } else if (isDeleting && charIndex === 0) {
-        setIsDeleting(false);
-        setTypingIndex((prev) => (prev + 1) % searchPhrases.length);
-      }
+    let timeout;
+    
+    if (!isDeleting && charIndex <= currentPhrase.length) {
+      timeout = setTimeout(() => {
+        setPlaceholder(currentPhrase.substring(0, charIndex));
+        setCharIndex(prev => prev + 1);
+      }, 80);
+    } else if (isDeleting && charIndex >= 0) {
+      timeout = setTimeout(() => {
+        setPlaceholder(currentPhrase.substring(0, charIndex));
+        setCharIndex(prev => prev - 1);
+      }, 40);
+    } else if (charIndex > currentPhrase.length) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (charIndex < 0) {
+      setIsDeleting(false);
+      setTypingIndex((prev) => (prev + 1) % searchPhrases.length);
+      setCharIndex(0);
     }
-    return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, typingIndex, searchOpen]);
+    
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, typingIndex]);
 
-  // ✅ STEP 1: REMOVE old useEffect that reads localStorage - not needed anymore
+  // ✅ Search suggestions
+  useEffect(() => {
+    if (searchTerm.length > 1) {
+      const filtered = allProducts.filter(p => 
+        p.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSuggestions(filtered);
+    } else {
+      setSuggestions([]);
+    }
+  }, [searchTerm]);
 
+  // ✅ Scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ Close dropdown on outside click
   useEffect(() => {
-    if (searchTerm === "") {
-      setSuggestions([]);
-    } else {
-      const filtered = allProducts.filter(item =>
-        item.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setSuggestions(filtered);
-    }
-  }, [searchTerm]);
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.dropdown-trigger') && !e.target.closest('.dropdown-content')) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
-  const handleSearchSubmit = (term) => {
-    if (!term.trim()) return;
-    const lowerTerm = term.toLowerCase();
+  const cartTotal = cart.reduce((sum, item) => sum + item.price * (item.qty || 1), 0);
+  const cartCount = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/shop?search=${encodeURIComponent(searchTerm.trim())}`);
+      setSearchOpen(false);
+      setSearchTerm("");
+    }
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    navigate(`/shop?search=${encodeURIComponent(suggestion)}`);
     setSearchOpen(false);
-    setSearchTerm(""); 
-
-    if (lowerTerm.includes("saree")) navigate("/sarees");
-    else if (lowerTerm.includes("kurta")) navigate("/kurtas");
-    else if (lowerTerm.includes("dupatta")) navigate("/dupattas");
-    else if (lowerTerm.includes("lehenga")) navigate("/lehengas");
-    else navigate(`/shop`); 
+    setSearchTerm("");
+    setSuggestions([]);
   };
-
-  const handleUserIconClick = () => {
-    if (user) {
-      setShowUserMenu(false);
-      navigate("/profile");
-    } else {
-      navigate("/account");
-    }
-  };
-
-  // ✅ STEP 5: Updated logout function using context logout
-  const handleLogout = () => {
-    logout(); // ✅ context logout
-    setShowUserMenu(false);
-    navigate("/");
-  };
-
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.qty || 1)), 0);
-  const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
-  const freeShippingThreshold = 999;
-  const amountToFreeShipping = freeShippingThreshold - subtotal;
-  const shippingProgress = Math.min((subtotal / freeShippingThreshold) * 100, 100);
-
-  const trendingSearches = ["Kanjeevaram Silk", "Designer Kurtas", "Bridal Lehenga", "Organza Saree"];
 
   return (
     <>
-      <header className={`w-full z-40 transition-all duration-300 ${scrolled ? "fixed top-0 shadow-xl" : "relative"}`}>
-        
-        {!scrolled && (
-          <div className="bg-primary text-white">
-            <div className="container flex justify-between items-center py-2 px-4">
-              <div className="flex items-center gap-6">
-                <a href="mailto:hello@llmshop.com" className="flex items-center gap-1.5 text-xs hover:text-orange-100 transition-colors">
-                  <Mail className="w-3 h-3" /> hello@llmshop.com
-                </a>
-                <a href="tel:+919885222227" className="hidden sm:flex items-center gap-1.5 text-xs hover:text-orange-100 transition-colors">
-                  <Phone className="w-3 h-3" /> +91 98852 22227
-                </a>
-              </div>
-              <div className="hidden md:flex items-center gap-6 text-xs">
-                <Link to="/track-order" className="flex items-center gap-1.5 hover:text-orange-100 transition-colors">Track Order</Link>
-                <Link to="/store-locator" className="flex items-center gap-1.5 hover:text-orange-100 transition-colors">Store Locator</Link>
-              </div>
-            </div>
-          </div>
-        )}
+      {/* Top Bar */}
+      <div className="hidden md:flex bg-foreground text-primary-foreground/70 text-xs py-2 px-4 justify-between items-center">
+        <div className="flex items-center gap-6">
+          <span className="flex items-center gap-1.5"><Phone className="w-3 h-3" /> +91 98852 22227</span>
+          <span className="flex items-center gap-1.5"><Mail className="w-3 h-3" /> hello@fabricforever.in</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <span>🚚 Free Shipping on orders above ₹999</span>
+          <span className="border-l border-primary-foreground/20 pl-4">✨ Premium Quality Fabrics</span>
+        </div>
+      </div>
 
-        <nav className="bg-white shadow-sm relative z-50">
-          <div className="container flex items-center justify-between h-20">
+      {/* Main Navbar */}
+      <nav className={`sticky top-0 z-50 bg-card border-b transition-all duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16 md:h-20">
             
-            <Link to="/" className="flex items-center">
-              <img src="/logo.png" alt="LM Shop" className="h-14 object-contain" />
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2 -ml-2 text-foreground hover:text-primary transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-2 flex-shrink-0">
+              <span className="text-xl md:text-2xl font-heading font-bold text-foreground tracking-tight">
+                Fabric<span className="text-primary">Forever</span>
+              </span>
             </Link>
 
-            <ul className="hidden lg:flex items-center h-full">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
-                <li key={link.label} className="h-full flex items-center" onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.label)} onMouseLeave={() => setActiveDropdown(null)}>
-                  <Link to={link.path} className="flex items-center gap-1 px-4 text-sm font-semibold text-gray-600 hover:text-primary transition-colors duration-200 uppercase tracking-wide">
-                    {link.label} {link.hasDropdown && <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === link.label ? 'rotate-180 text-primary' : ''}`} />}
+                <div 
+                  key={link.label}
+                  className="relative dropdown-trigger"
+                  onMouseEnter={() => setActiveDropdown(link.label)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <Link
+                    to={link.path}
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted/50"
+                  >
+                    {link.label}
+                    {link.hasDropdown && <ChevronDown className="w-3.5 h-3.5" />}
                   </Link>
 
+                  {/* Dropdown */}
                   {link.hasDropdown && activeDropdown === link.label && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-full max-w-5xl bg-white shadow-2xl border border-gray-100 rounded-b-xl overflow-hidden z-50 mt-0 origin-top animate-in fade-in zoom-in-95 duration-200">
-                      <div className="p-6">
-                        <div className="flex gap-6">
-                          <div className="flex-1 grid grid-cols-3 gap-6">
-                            {link.dropdownContent?.columns.map((column, idx) => (
-                              <div key={idx}>
-                                <h4 className="text-xs font-bold text-primary uppercase tracking-wider mb-3 pb-2 border-b border-gray-100">{column.title}</h4>
-                                <ul className="space-y-2">
-                                  {column.links.map((item) => (
-                                    <li key={item.name}>
-                                      <button 
-                                        onClick={() => handleDropdownClick(item, item.path)}
-                                        className="text-sm text-gray-600 hover:text-primary hover:translate-x-1 transition-all duration-200 flex items-center gap-2 w-full text-left cursor-pointer"
-                                      >
-                                        {item.name}
-                                        {item.badge && (
-                                          <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-bold ${
-                                            item.badge.includes('New') || item.badge.includes('✨') ? 'bg-green-100 text-green-700' :
-                                            item.badge.includes('Hot') || item.badge.includes('🔥') ? 'bg-red-100 text-red-700' :
-                                            item.badge.includes('Trending') || item.badge.includes('📈') ? 'bg-blue-100 text-blue-700' :
-                                            item.badge.includes('Premium') || item.badge.includes('⭐') ? 'bg-purple-100 text-purple-700' :
-                                            item.badge.includes('OFF') || item.badge.includes('💰') ? 'bg-orange-100 text-orange-700' :
-                                            'bg-gray-100 text-gray-700'
-                                          }`}>
-                                            {item.badge}
-                                          </span>
-                                        )}
-                                      </button>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-                          {link.dropdownContent?.featuredImage && (
-                            <div className="w-56 flex-shrink-0">
-                              <Link to={link.dropdownContent.featuredImage.link} className="block group" onClick={() => setActiveDropdown(null)}>
-                                <div className="relative rounded-lg overflow-hidden">
-                                  <img src={link.dropdownContent.featuredImage.url} alt={link.dropdownContent.featuredImage.title} className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-4">
-                                    <p className="text-white/80 text-xs mb-1">{link.dropdownContent.featuredImage.subtitle}</p>
-                                    <p className="text-white font-bold text-base">{link.dropdownContent.featuredImage.title}</p>
-                                  </div>
-                                </div>
-                              </Link>
+                    <div 
+                      className="dropdown-content absolute top-full left-0 mt-1 bg-card border rounded-xl shadow-2xl p-6 min-w-[700px] z-50 animate-fade-up"
+                      onMouseEnter={() => setActiveDropdown(link.label)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      <div className="flex gap-8">
+                        <div className="flex-1 grid grid-cols-3 gap-6">
+                          {link.dropdownContent.columns.map((col) => (
+                            <div key={col.title}>
+                              <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">{col.title}</h4>
+                              <ul className="space-y-2">
+                                {col.links.map((item) => (
+                                  <li key={item.name}>
+                                    <button
+                                      onClick={() => handleDropdownClick(item, link.path)}
+                                      className="text-sm text-foreground/70 hover:text-primary transition-colors flex items-center gap-2 w-full text-left"
+                                    >
+                                      {item.name}
+                                      {item.badge && (
+                                        <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded-full font-medium">{item.badge}</span>
+                                      )}
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
                             </div>
-                          )}
+                          ))}
                         </div>
-                      </div>
-                      <div className="bg-gray-50 px-6 py-2.5 border-t border-gray-100 flex items-center justify-between">
-                        <Link to={link.path} className="text-xs font-semibold text-primary hover:text-orange-600 transition-colors flex items-center gap-1" onClick={() => setActiveDropdown(null)}>
-                          View All {link.label} →
-                        </Link>
-                        <span className="text-[10px] text-gray-400 flex items-center gap-1">
-                          <Shield className="w-3 h-3" /> Premium Quality Assured
-                        </span>
+                        {link.dropdownContent.featuredImage && (
+                          <Link 
+                            to={link.dropdownContent.featuredImage.link}
+                            className="w-[200px] flex-shrink-0 relative rounded-lg overflow-hidden group"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            <img 
+                              src={link.dropdownContent.featuredImage.url} 
+                              alt={link.dropdownContent.featuredImage.title}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                            <div className="absolute bottom-0 left-0 p-4">
+                              <p className="text-white text-sm font-semibold">{link.dropdownContent.featuredImage.title}</p>
+                              <p className="text-white/70 text-xs">{link.dropdownContent.featuredImage.subtitle}</p>
+                            </div>
+                          </Link>
+                        )}
                       </div>
                     </div>
                   )}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
 
-            <div className="flex items-center gap-2">
-              <button onClick={() => setSearchOpen(!searchOpen)} className="p-2 text-gray-600 hover:text-primary hover:bg-orange-50 rounded-full transition-all duration-200">
+            {/* Right Icons */}
+            <div className="flex items-center gap-1 md:gap-2">
+              {/* Search */}
+              <button 
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="p-2 text-foreground/70 hover:text-primary transition-colors rounded-full hover:bg-muted"
+              >
                 <Search className="w-5 h-5" />
               </button>
-              
-              {/* ✅ STEP 3: Use 'user' instead of 'isLoggedIn' */}
-              <div 
-                className="relative hidden sm:flex" 
-                onMouseEnter={() => user && setShowUserMenu(true)} 
-                onMouseLeave={() => setShowUserMenu(false)}
-              >
+
+              {/* Wishlist */}
+              <Link to="/wishlist" className="p-2 text-foreground/70 hover:text-primary transition-colors rounded-full hover:bg-muted relative">
+                <Heart className="w-5 h-5" />
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 bg-destructive text-destructive-foreground text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
+
+              {/* User */}
+              <div className="relative">
                 <button 
-                  onClick={handleUserIconClick} 
-                  className="p-2 text-gray-600 hover:text-primary hover:bg-orange-50 rounded-full transition-all duration-200 relative cursor-pointer"
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="p-2 text-foreground/70 hover:text-primary transition-colors rounded-full hover:bg-muted"
                 >
                   <User className="w-5 h-5" />
-                  {user && <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white"></span>}
                 </button>
-
-                {/* ✅ STEP 3: Use 'user' instead of 'isLoggedIn' */}
-                {user && showUserMenu && (
-                  <div className="absolute right-0 top-full pt-2 w-56 z-[100]">
-                    <div className="bg-white shadow-[0_4px_16px_rgba(0,0,0,0.1)] border border-gray-100 py-3 rounded-sm animate-in fade-in zoom-in-95 duration-200">
-                      {/* ✅ STEP 4: Use user?.name */}
-                      <p className="px-5 mb-3 text-[15px] font-medium text-gray-800 tracking-wide">
-                        Welcome {user?.name?.split(' ')[0] || "User"}!
-                      </p>
-                      <div className="flex flex-col">
-                        <Link to="/profile" onClick={() => setShowUserMenu(false)} className="flex items-center gap-4 px-5 py-2.5 text-[15px] text-gray-800 hover:text-primary transition-colors">
-                          <User className="w-[18px] h-[18px] text-primary" strokeWidth={1.5} /> Account Details
+                {showUserMenu && (
+                  <div className="absolute right-0 top-full mt-2 w-48 bg-card border rounded-xl shadow-xl p-2 z-50 animate-fade-up">
+                    {user ? (
+                      <>
+                        <div className="px-3 py-2 border-b mb-1">
+                          <p className="text-sm font-semibold">{user.name || "User"}</p>
+                          <p className="text-xs text-muted-foreground">{user.email}</p>
+                        </div>
+                        <Link to="/profile" className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-muted rounded-lg" onClick={() => setShowUserMenu(false)}>
+                          <User className="w-4 h-4" /> Profile
                         </Link>
-                        <Link to="/profile?tab=orders" onClick={() => setShowUserMenu(false)} className="flex items-center gap-4 px-5 py-2.5 text-[15px] text-gray-800 hover:text-primary transition-colors">
-                          <CreditCard className="w-[18px] h-[18px] text-primary" strokeWidth={1.5} /> Order History
+                        <Link to="/order-history" className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-muted rounded-lg" onClick={() => setShowUserMenu(false)}>
+                          <Package className="w-4 h-4" /> Orders
                         </Link>
-                        <Link to="/profile?tab=wishlist" onClick={() => setShowUserMenu(false)} className="flex items-center gap-4 px-5 py-2.5 text-[15px] text-gray-800 hover:text-primary transition-colors">
-                          <Heart className="w-[18px] h-[18px] text-primary" strokeWidth={1.5} /> Wishlist
+                        <button 
+                          onClick={() => { logout(); setShowUserMenu(false); }}
+                          className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-muted rounded-lg w-full text-left text-destructive"
+                        >
+                          <LogOut className="w-4 h-4" /> Logout
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <Link to="/signin" className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-muted rounded-lg" onClick={() => setShowUserMenu(false)}>
+                          Sign In
                         </Link>
-                      </div>
-                      <button onClick={handleLogout} className="mt-2 px-5 py-2 text-[15px] text-gray-800 hover:text-primary w-full text-left transition-colors">
-                        Sign Out
-                      </button>
-                    </div>
+                        <Link to="/register" className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-muted rounded-lg" onClick={() => setShowUserMenu(false)}>
+                          Register
+                        </Link>
+                      </>
+                    )}
                   </div>
                 )}
               </div>
-              
-              <Link to="/profile?tab=wishlist" className="hidden sm:flex p-2 text-gray-600 hover:text-primary hover:bg-orange-50 rounded-full transition-all duration-200 relative">
-                <Heart className="w-5 h-5" />
-                {wishlist.length > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-white text-[10px] min-w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold shadow-md">{wishlist.length}</span>}
-              </Link>
-              
-              <button onClick={() => { if(user) setIsCartOpen(true); else navigate("/account"); }} className="p-2 text-gray-600 hover:text-primary hover:bg-orange-50 rounded-full transition-all duration-200 relative">
-                <ShoppingCart className="w-5 h-5" /> 
-                {cart.length > 0 && <span className="absolute -top-0.5 -right-0.5 bg-primary text-white text-[10px] min-w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold shadow-md">{totalItems}</span>}
-              </button>
-              
-              <button className="lg:hidden p-2 text-gray-600" onClick={() => setMobileOpen(!mobileOpen)}>
-                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+
+              {/* Cart */}
+              <button 
+                onClick={() => setIsCartOpen(!isCartOpen)}
+                className="p-2 text-foreground/70 hover:text-primary transition-colors rounded-full hover:bg-muted relative"
+              >
+                <ShoppingCart className="w-5 h-5" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 bg-primary text-primary-foreground text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                    {cartCount}
+                  </span>
+                )}
               </button>
             </div>
           </div>
-        </nav>
-      </header>
+        </div>
 
-      {/* SEARCH OVERLAY */}
-      {searchOpen && (
-        <>
-          <div className="fixed inset-0 bg-black/30 z-[80]" onClick={() => setSearchOpen(false)} />
-          <div className="fixed top-0 left-0 right-0 bg-white z-[90] shadow-xl transform transition-transform duration-300">
-            <div className="container py-4"> 
-              <div className="max-w-2xl mx-auto">
-                <div className="relative flex items-center border-b-2 border-primary pb-2">
-                  <Search className="w-5 h-5 text-gray-400 mr-3" />
-                  <input
-                    type="text"
-                    placeholder={placeholder}
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') handleSearchSubmit(searchTerm);
-                    }}
-                    className="w-full text-base text-gray-800 focus:outline-none bg-transparent"
-                    autoFocus
-                  />
-                  <button onClick={() => setSearchOpen(false)} className="p-1 hover:bg-gray-100 rounded-full transition-colors ml-2">
-                    <X className="w-5 h-5 text-gray-400" />
+        {/* Search Bar */}
+        {searchOpen && (
+          <div className="border-t bg-card animate-fade-up">
+            <div className="container mx-auto px-4 py-3">
+              <form onSubmit={handleSearch} className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder={placeholder || "Search fabrics..."}
+                  className="w-full pl-10 pr-4 py-2.5 bg-muted rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  autoFocus
+                />
+                {searchTerm && (
+                  <button 
+                    type="button"
+                    onClick={() => { setSearchTerm(""); setSuggestions([]); }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2"
+                  >
+                    <X className="w-4 h-4 text-muted-foreground" />
                   </button>
-                </div>
-                
-                {suggestions.length > 0 && (
-                  <div className="bg-white mt-1 shadow-lg border border-gray-100 rounded-b-md overflow-hidden absolute max-w-2xl w-full left-0 right-0 mx-auto z-[95]">
-                    {suggestions.map((item, index) => (
-                      <div
-                        key={index}
-                        className="px-4 py-2.5 hover:bg-orange-50 cursor-pointer transition-colors flex items-center gap-3 border-b border-gray-50 last:border-0"
-                        onClick={() => handleSearchSubmit(item)}
-                      >
-                        <Search className="w-3.5 h-3.5 text-gray-400" />
-                        <span className="text-gray-700 text-sm font-medium">{item}</span>
-                      </div>
-                    ))}
-                  </div>
                 )}
-
-                <div className="mt-4 flex items-center gap-3">
-                  <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Trending:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {trendingSearches.map((term) => (
-                      <button key={term} onClick={() => handleSearchSubmit(term)} className="px-3 py-1 bg-gray-50 hover:bg-orange-50 hover:text-primary text-xs text-gray-600 rounded-sm transition-colors border border-gray-100">
-                        {term}
-                      </button>
-                    ))}
-                  </div>
+              </form>
+              {suggestions.length > 0 && (
+                <div className="mt-2 bg-card border rounded-lg shadow-lg p-2">
+                  {suggestions.map((s, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleSuggestionClick(s)}
+                      className="block w-full text-left px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors"
+                    >
+                      {s}
+                    </button>
+                  ))}
                 </div>
-              </div>
+              )}
             </div>
-          </div>
-        </>
-      )}
-
-      {/* CART DRAWER */}
-      {isCartOpen && <div className="fixed inset-0 bg-black/60 z-[60]" onClick={() => setIsCartOpen(false)} />}
-      <div className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform transition-transform duration-500 ease-in-out flex flex-col ${isCartOpen ? "translate-x-0" : "translate-x-full"}`}>
-        <div className="p-4 border-b flex items-center justify-between">
-          <h2 className="font-bold text-lg">Shopping Bag ({cart.length})</h2>
-          <button onClick={() => setIsCartOpen(false)}><X className="w-5 h-5" /></button>
-        </div>
-        <div className="flex-1 overflow-y-auto p-4">
-          {cart.length === 0 ? (
-            <div className="text-center text-gray-500 mt-10">
-              <ShoppingCart className="w-12 h-12 mx-auto mb-3 text-gray-300" />
-              <p>Your bag is empty</p>
-            </div>
-          ) : (
-            cart.map(item => (
-              <div key={item.id} className="flex gap-4 mb-4 border-b pb-4">
-                <img src={item.image} alt={item.name} className="w-20 h-24 object-cover rounded-md" />
-                <div className="flex-1">
-                  <h4 className="text-sm font-semibold line-clamp-2">{item.name}</h4>
-                  <p className="text-primary font-bold mt-1">₹{(item.price || 0).toLocaleString("en-IN")}</p>
-                  <div className="flex items-center gap-3 mt-2">
-                    <div className="flex items-center border border-gray-200 rounded">
-                      <button onClick={() => updateQuantity && updateQuantity(item.id, (item.qty || 1) - 1)} className="px-2 py-1 hover:bg-gray-100">-</button>
-                      <span className="px-3 py-1 text-xs">{item.qty || 1}</span>
-                      <button onClick={() => updateQuantity && updateQuantity(item.id, (item.qty || 1) + 1)} className="px-2 py-1 hover:bg-gray-100">+</button>
-                    </div>
-                    <button onClick={() => removeFromCart(item.id)} className="text-red-500 text-xs">Remove</button>
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-        {cart.length > 0 && (
-          <div className="p-4 border-t">
-            <div className="flex justify-between font-bold text-lg mb-4">
-              <span>Total:</span> <span>₹{subtotal.toLocaleString("en-IN")}</span>
-            </div>
-            <button onClick={() => { setIsCartOpen(false); navigate("/checkout"); }} className="w-full bg-primary text-white py-3 font-bold rounded-full hover:bg-primary/90 transition">
-              Proceed to Checkout
-            </button>
           </div>
         )}
-      </div>
 
-      {/* MOBILE MENU */}
-      {mobileOpen && (
-        <>
-          <div className="fixed inset-0 bg-black/50 z-[40]" onClick={() => setMobileOpen(false)} />
-          <div className="fixed top-0 left-0 w-4/5 max-w-sm h-full bg-white z-[50] shadow-xl overflow-y-auto">
-            <div className="p-4 border-b flex justify-between items-center">
-              <img src="/logo.png" alt="LM Shop" className="h-8" />
-              <button onClick={() => setMobileOpen(false)}><X className="w-5 h-5" /></button>
-            </div>
-            <div className="p-4">
+        {/* Mobile Menu */}
+        {mobileOpen && (
+          <div className="md:hidden border-t bg-card animate-fade-up max-h-[70vh] overflow-y-auto">
+            <div className="container mx-auto px-4 py-4 space-y-1">
               {navLinks.map((link) => (
-                <Link key={link.label} to={link.path} className="block py-3 text-gray-700 border-b border-gray-100" onClick={() => setMobileOpen(false)}>
-                  {link.label}
-                </Link>
+                <div key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="flex items-center justify-between py-3 px-2 text-sm font-medium text-foreground/80 hover:text-primary border-b border-border/50"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </div>
               ))}
-              <div className="mt-4 pt-4 border-t">
-                {user ? (
-                  <>
-                    <p className="text-sm font-semibold mb-2">Welcome, {user?.name?.split(' ')[0]}</p>
-                    <Link to="/profile" className="block py-2 text-gray-600" onClick={() => setMobileOpen(false)}>My Profile</Link>
-                    <Link to="/profile?tab=orders" className="block py-2 text-gray-600" onClick={() => setMobileOpen(false)}>Order History</Link>
-                    <Link to="/profile?tab=wishlist" className="block py-2 text-gray-600" onClick={() => setMobileOpen(false)}>Wishlist</Link>
-                    <button onClick={handleLogout} className="block py-2 text-red-500 w-full text-left">Sign Out</button>
-                  </>
-                ) : (
-                  <>
-                    <Link to="/account" className="block py-2 text-gray-600" onClick={() => setMobileOpen(false)}>Sign In / Register</Link>
-                    <Link to="/profile?tab=wishlist" className="block py-2 text-gray-600" onClick={() => setMobileOpen(false)}>Wishlist</Link>
-                  </>
-                )}
+              <div className="pt-4 space-y-2">
+                <Link to="/signin" className="block py-2 px-2 text-sm text-foreground/70 hover:text-primary" onClick={() => setMobileOpen(false)}>Sign In</Link>
+                <Link to="/register" className="block py-2 px-2 text-sm text-foreground/70 hover:text-primary" onClick={() => setMobileOpen(false)}>Register</Link>
               </div>
             </div>
           </div>
-        </>
-      )}
+        )}
 
-      <style dangerouslySetInnerHTML={{__html: `
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      `}} />
+        {/* Cart Sidebar */}
+        {isCartOpen && (
+          <>
+            <div className="fixed inset-0 bg-black/50 z-50" onClick={() => setIsCartOpen(false)} />
+            <div className="fixed right-0 top-0 h-full w-full max-w-md bg-card z-50 shadow-2xl animate-slide-right">
+              <div className="flex items-center justify-between p-4 border-b">
+                <h3 className="font-heading text-lg font-semibold">Shopping Cart ({cartCount})</h3>
+                <button onClick={() => setIsCartOpen(false)} className="p-1 hover:bg-muted rounded-full">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="p-4 flex flex-col h-[calc(100%-130px)] overflow-y-auto">
+                {cart.length === 0 ? (
+                  <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
+                    <ShoppingCart className="w-16 h-16 mb-4 opacity-20" />
+                    <p className="text-lg font-medium">Your cart is empty</p>
+                    <p className="text-sm">Add some beautiful fabrics!</p>
+                    <Link to="/shop" onClick={() => setIsCartOpen(false)} className="mt-4 text-primary text-sm font-semibold hover:underline">
+                      Browse Fabrics →
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {cart.map((item) => (
+                      <div key={item.id} className="flex gap-3 p-3 bg-muted/50 rounded-lg">
+                        <img src={item.image} alt={item.name} className="w-16 h-20 object-cover rounded-md" />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate">{item.name}</p>
+                          <p className="text-xs text-muted-foreground">{item.category}</p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <button onClick={() => updateQuantity(item.id, (item.qty || 1) - 1)} className="p-0.5 hover:bg-muted rounded">
+                              <Minus className="w-3 h-3" />
+                            </button>
+                            <span className="text-sm font-medium">{item.qty || 1}</span>
+                            <button onClick={() => updateQuantity(item.id, (item.qty || 1) + 1)} className="p-0.5 hover:bg-muted rounded">
+                              <Plus className="w-3 h-3" />
+                            </button>
+                          </div>
+                          <div className="flex items-center justify-between mt-1">
+                            <span className="text-sm font-semibold">₹{(item.price * (item.qty || 1)).toLocaleString()}</span>
+                            <button onClick={() => removeFromCart(item.id)} className="text-destructive hover:bg-destructive/10 p-1 rounded">
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {cart.length > 0 && (
+                <div className="border-t p-4 space-y-3">
+                  <div className="flex justify-between text-sm">
+                    <span>Subtotal</span>
+                    <span className="font-semibold">₹{cartTotal.toLocaleString()}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Shipping calculated at checkout</p>
+                  <Link 
+                    to="/cart" 
+                    onClick={() => setIsCartOpen(false)}
+                    className="block w-full bg-primary text-primary-foreground text-center py-2.5 rounded-lg font-medium text-sm hover:bg-primary/90 transition-colors"
+                  >
+                    View Cart & Checkout
+                  </Link>
+                </div>
+              )}
+            </div>
+          </>
+        )}
+      </nav>
     </>
   );
 };
-  
+
 export default Navbar;

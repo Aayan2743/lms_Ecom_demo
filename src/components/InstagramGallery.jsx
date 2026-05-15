@@ -8,11 +8,11 @@ import insta5 from "@/assets/insta-5.jpg";
 import insta6 from "@/assets/insta-6.jpg";
 
 const photos = [
-  { src: insta1, alt: "Elegant saree in sunlit courtyard", tall: true },
-  { src: insta2, alt: "Artisan holding fabric rolls", tall: false },
-  { src: insta3, alt: "Jewelry and flowers flat lay", tall: true },
-  { src: insta4, alt: "Street style in a colorful bazaar", tall: false },
-  { src: insta5, alt: "Purple silk saree in boutique", tall: true },
+  { src: insta1, alt: "Premium silk fabric in sunlight", tall: true },
+  { src: insta2, alt: "Artisan weaving handloom fabric", tall: false },
+  { src: insta3, alt: "Colorful fabric rolls display", tall: true },
+  { src: insta4, alt: "Fabric store collection", tall: false },
+  { src: insta5, alt: "Purple silk fabric closeup", tall: true },
   { src: insta6, alt: "Traditional handloom weaving", tall: false },
 ];
 
@@ -25,9 +25,9 @@ const InstagramGallery = () => {
       <div className="container">
         <div className={`text-center mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <p className="text-primary text-sm uppercase tracking-widest font-medium mb-2">Follow Our Journey</p>
-          <h2 className="text-3xl md:text-4xl font-heading mb-3">@VastraTextiles</h2>
+          <h2 className="text-3xl md:text-4xl font-heading mb-3">@FabricForever</h2>
           <p className="text-muted-foreground max-w-md mx-auto text-sm">
-            Tag us in your photos for a chance to be featured
+            Tag us with your fabric creations for a chance to be featured
           </p>
         </div>
 

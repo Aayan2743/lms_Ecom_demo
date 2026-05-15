@@ -1,7 +1,7 @@
 /** Demo admin accounts (frontend only). Replace with real auth in production. */
 export const ADMIN_CREDENTIALS = [
-  { email: "test@admin.com", password: "123456" },
-  { email: "admin@lmshowroom.com", password: "admin123" },
+  { email: "admin@fabricforever.in", password: "admin123" },
+  { email: "test@fabricforever.in", password: "123456" },
 ];
 
 export function matchAdminCredential(email, password) {

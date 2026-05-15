@@ -50,26 +50,26 @@ const Contact = () => {
 
   // Quick contact options
   const quickContacts = [
-    { 
-      icon: Phone, 
-      title: "Call Us", 
-      value: "+91 98852 22227", 
+    {
+      icon: Phone,
+      title: "Call Us",
+      value: "+91 98852 22227",
       link: "tel:+919885222227",
       color: "from-blue-500 to-cyan-600",
       desc: "24/7 Customer Support"
     },
-    { 
-      icon: Mail, 
-      title: "Email Us", 
-      value: "hello@llmshop.com", 
-      link: "mailto:hello@llmshop.com",
+    {
+      icon: Mail,
+      title: "Email Us",
+      value: "hello@fabricforever.in",
+      link: "mailto:hello@fabricforever.in",
       color: "from-purple-500 to-indigo-600",
       desc: "Response within 2 hours"
     },
-    { 
-      icon: MessageCircle, 
-      title: "WhatsApp", 
-      value: "+91 98852 22227", 
+    {
+      icon: MessageCircle,
+      title: "WhatsApp",
+      value: "+91 98852 22227",
       link: "https://wa.me/919885222227",
       color: "from-green-500 to-emerald-600",
       desc: "Chat with us instantly"
@@ -78,7 +78,7 @@ const Contact = () => {
 
   // Trust badges
   const trustBadges = [
-    { icon: Award, title: "40+ Years", desc: "Of Excellence" },
+    { icon: Award, title: "40+ Years", desc: "Of Textile Excellence" },
     { icon: Users, title: "50,000+", desc: "Happy Customers" },
     { icon: Star, title: "4.9 Rating", desc: "Customer Love" },
     { icon: Truck, title: "Free Shipping", desc: "Above ₹999" }
@@ -87,10 +87,10 @@ const Contact = () => {
   // Social links
   const socialLinks = [
     { icon: Facebook, link: "https://www.facebook.com/lmshowroomatnellore/", color: "bg-[#1877F2] hover:bg-[#1877F2]/90" },
-    { icon: Instagram, link: "https://instagram.com/llmshowroom", color: "bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700" },
-    { icon: Twitter, link: "https://twitter.com/llmshowroom", color: "bg-[#1DA1F2] hover:bg-[#1DA1F2]/90" },
-    { icon: Youtube, link: "https://youtube.com/llmshowroom", color: "bg-[#FF0000] hover:bg-[#FF0000]/90" },
-    { icon: Linkedin, link: "https://linkedin.com/company/llmshowroom", color: "bg-[#0A66C2] hover:bg-[#0A66C2]/90" }
+    { icon: Instagram, link: "https://instagram.com/fabricforever", color: "bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700" },
+    { icon: Twitter, link: "https://twitter.com/fabricforever", color: "bg-[#1DA1F2] hover:bg-[#1DA1F2]/90" },
+    { icon: Youtube, link: "https://youtube.com/fabricforever", color: "bg-[#FF0000] hover:bg-[#FF0000]/90" },
+    { icon: Linkedin, link: "https://linkedin.com/company/fabricforever", color: "bg-[#0A66C2] hover:bg-[#0A66C2]/90" }
   ];
 
   return (

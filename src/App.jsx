@@ -16,14 +16,11 @@ import FloatingVideoWidget from "./FloatingVideoWidget.jsx";
 // --> PAGES IMPORT <--
 import Index from "./pages/Index.jsx";
 import Shop from "./pages/Shop.jsx";
-import Sarees from "./pages/Sarees.jsx";
-import Fabrics from "./pages/Fabrics.jsx";
-import Kurtas from "./pages/Kurtas.jsx";
-import Dupattas from "./pages/Dupattas.jsx";
-import Categories from "./pages/Categories.jsx"; 
-import Featured from "./pages/Featured.jsx";     
-import Reviews from "./pages/Reviews.jsx";       
-import Gallery from "./pages/Gallery.jsx";       
+import FabricCategoryPage from "./pages/FabricCategoryPage.jsx";
+import Categories from "./pages/Categories.jsx";
+import Featured from "./pages/Featured.jsx";
+import Reviews from "./pages/Reviews.jsx";
+import Gallery from "./pages/Gallery.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
@@ -42,6 +39,7 @@ import AdminLayout from "./pages/admin/AdminLayout.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import AdminProducts from "./pages/admin/AdminProducts.jsx";
 import AdminProductEditor from "./pages/admin/AdminProductEditor.jsx";
+import AdminBulkEditor from "./pages/admin/AdminBulkEditor.jsx";
 import AdminCategories from "./pages/admin/AdminCategories.jsx";
 import AdminOrders from "./pages/admin/AdminOrders.jsx";
 import AdminProfile from "./pages/admin/AdminProfile.jsx";
@@ -75,10 +73,19 @@ const App = () => {
               <Route path="/featured" element={<Featured />} />
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/gallery" element={<Gallery />} />
-              <Route path="/sarees" element={<Sarees />} />
-              <Route path="/fabrics" element={<Fabrics />} />
-              <Route path="/kurtas" element={<Kurtas />} />
-              <Route path="/dupattas" element={<Dupattas />} />
+              <Route path="/silk-fabrics" element={<FabricCategoryPage categoryKey="silk-fabrics" />} />
+              <Route path="/cotton-fabrics" element={<FabricCategoryPage categoryKey="cotton-fabrics" />} />
+              <Route path="/linen-fabrics" element={<FabricCategoryPage categoryKey="linen-fabrics" />} />
+              <Route path="/georgette-fabrics" element={<FabricCategoryPage categoryKey="georgette-fabrics" />} />
+              <Route path="/organza-fabrics" element={<FabricCategoryPage categoryKey="organza-fabrics" />} />
+              <Route path="/chiffon-fabrics" element={<FabricCategoryPage categoryKey="chiffon-fabrics" />} />
+              <Route path="/velvet-fabrics" element={<FabricCategoryPage categoryKey="velvet-fabrics" />} />
+              <Route path="/crepe-fabrics" element={<FabricCategoryPage categoryKey="crepe-fabrics" />} />
+              {/* Legacy redirects */}
+              <Route path="/sarees" element={<FabricCategoryPage categoryKey="silk-fabrics" />} />
+              <Route path="/fabrics" element={<FabricCategoryPage categoryKey="cotton-fabrics" />} />
+              <Route path="/kurtas" element={<FabricCategoryPage categoryKey="linen-fabrics" />} />
+              <Route path="/dupattas" element={<FabricCategoryPage categoryKey="organza-fabrics" />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About />} />
@@ -124,6 +131,7 @@ const App = () => {
                 <Route index element={<AdminDashboard />} />
                 <Route path="products/new" element={<AdminProductEditor />} />
                 <Route path="products/:id/edit" element={<AdminProductEditor />} />
+                <Route path="products/bulk" element={<AdminBulkEditor />} />
                 <Route path="products" element={<AdminProducts />} />
                 <Route path="categories" element={<AdminCategories />} />
                 <Route path="orders" element={<AdminOrders />} />

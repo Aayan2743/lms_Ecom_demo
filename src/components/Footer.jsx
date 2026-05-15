@@ -1,7 +1,6 @@
 import { Instagram, Facebook, Youtube, Twitter } from "lucide-react";
-import { Link } from "react-router-dom"; // <-- NAYA IMPORT
+import { Link } from "react-router-dom";
 
-// Links Data Mapping
 const accountLinks = [
   { label: "Sign In", path: "/signin" },
   { label: "Register", path: "/register" },
@@ -13,13 +12,13 @@ const infoLinks = [
   { label: "About Us", path: "/about" },
   { label: "Shipping Policy", path: "/faq" },
   { label: "Returns & Refunds", path: "/faq" },
-  { label: "Privacy Policy", path: "/faq" } // <-- YAHAN PATH CHANGE KIYA HAI (/about se /faq)
+  { label: "Privacy Policy", path: "/faq" }
 ];
 
 const supportLinks = [
   { label: "Contact Us", path: "/contact" },
   { label: "FAQs", path: "/faq" },
-  { label: "Size Guide", path: "/faq" },
+  { label: "Fabric Care Guide", path: "/faq" },
   { label: "Track Order", path: "/track-order" }
 ];
 
@@ -64,29 +63,25 @@ const Footer = () => (
           </ul>
         </div>
 
-        {/* Contact Us (Updated with Real Details) */}
+        {/* Contact Us */}
         <div>
           <h4 className="font-heading text-primary-foreground font-semibold mb-4">Contact Us</h4>
           <p className="text-sm mb-2 hover:text-primary transition-colors">
-            <a href="mailto:hello@llmshop.com">hello@llmshop.com</a>
+            <a href="mailto:hello@fabricforever.in">hello@fabricforever.in</a>
           </p>
           <p className="text-sm mb-4 hover:text-primary transition-colors">
             <a href="tel:+919885222227">+91 98852 22227</a>
           </p>
           <div className="flex gap-3">
-            {/* Instagram */}
             <a href="#" target="_blank" className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors">
               <Instagram className="w-4 h-4" />
             </a>
-            {/* Facebook (Real Link) */}
             <a href="https://www.facebook.com/lmshowroomatnellore/" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors">
               <Facebook className="w-4 h-4" />
             </a>
-            {/* Youtube */}
             <a href="#" target="_blank" className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors">
               <Youtube className="w-4 h-4" />
             </a>
-            {/* Twitter */}
             <a href="#" target="_blank" className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors">
               <Twitter className="w-4 h-4" />
             </a>
@@ -95,7 +90,7 @@ const Footer = () => (
       </div>
       
       <div className="border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/50">
-        © 2026 LM Showroom (LM Shop). All rights reserved.
+        © 2026 FabricForever. All rights reserved. | Premium Quality Fabrics Online
       </div>
     </div>
   </footer>

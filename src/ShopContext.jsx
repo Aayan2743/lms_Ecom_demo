@@ -88,6 +88,39 @@ export const ShopProvider = ({ children }) => {
     setCatalogProducts((prev) => prev.filter((p) => p.id !== id));
   }, []);
 
+  // ─── Batch operations for bulk editor ───
+  const batchApplyChanges = useCallback(({ additions, updates, deletions }) => {
+    setCatalogProducts((prev) => {
+      let next = [...prev];
+
+      // Apply deletions
+      if (deletions && deletions.length > 0) {
+        const deleteIds = new Set(deletions.map((d) => d.id));
+        next = next.filter((p) => !deleteIds.has(p.id));
+      }
+
+      // Apply updates
+      if (updates && updates.length > 0) {
+        const updateMap = new Map(updates.map((u) => [u.id, u]));
+        next = next.map((p) => {
+          const patch = updateMap.get(p.id);
+          return patch ? { ...p, ...patch, id: p.id } : p;
+        });
+      }
+
+      // Apply additions
+      if (additions && additions.length > 0) {
+        const newItems = additions.map((a) => ({
+          ...a,
+          id: a.id || Date.now() + Math.random(),
+        }));
+        next = [...next, ...newItems];
+      }
+
+      return next;
+    });
+  }, []);
+
   const addCategory = useCallback((cat) => {
     const id = cat.id ?? `cat-${Date.now()}`;
     const slug =
@@ -95,7 +128,7 @@ export const ShopProvider = ({ children }) => {
       String(cat.name || "")
         .toLowerCase()
         .replace(/\s+/g, "-");
-    setCategories((prev) => [...prev, { ...cat, id, name: cat.name, slug }]);
+    setCategories((prev) => [...prev, { ...cat, id, name: cat.name, slug, children: cat.children || [] }]);
   }, []);
 
   const updateCategory = useCallback((id, patch) => {
@@ -106,6 +139,38 @@ export const ShopProvider = ({ children }) => {
 
   const deleteCategory = useCallback((id) => {
     setCategories((prev) => prev.filter((c) => c.id !== id));
+  }, []);
+
+  const addSubcategory = useCallback((categoryId, sub) => {
+    const id = sub.id ?? `sub-${Date.now()}`;
+    const slug = sub.slug || String(sub.name || "").toLowerCase().replace(/\s+/g, "-");
+    setCategories((prev) =>
+      prev.map((c) =>
+        c.id === categoryId
+          ? { ...c, children: [...(c.children || []), { ...sub, id, slug }] }
+          : c
+      )
+    );
+  }, []);
+
+  const updateSubcategory = useCallback((categoryId, subId, patch) => {
+    setCategories((prev) =>
+      prev.map((c) =>
+        c.id === categoryId
+          ? { ...c, children: (c.children || []).map((s) => (s.id === subId ? { ...s, ...patch, id: s.id } : s)) }
+          : c
+      )
+    );
+  }, []);
+
+  const deleteSubcategory = useCallback((categoryId, subId) => {
+    setCategories((prev) =>
+      prev.map((c) =>
+        c.id === categoryId
+          ? { ...c, children: (c.children || []).filter((s) => s.id !== subId) }
+          : c
+      )
+    );
   }, []);
 
   const updateOrderStatus = useCallback((orderId, status) => {
@@ -236,10 +301,14 @@ export const ShopProvider = ({ children }) => {
       addProduct,
       updateProduct,
       deleteProduct,
+      batchApplyChanges,
       categories,
       addCategory,
       updateCategory,
       deleteCategory,
+      addSubcategory,
+      updateSubcategory,
+      deleteSubcategory,
       orders,
       updateOrderStatus,
       recordOrder,

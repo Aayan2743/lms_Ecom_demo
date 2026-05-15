@@ -3,10 +3,10 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const reviews = [
-  { name: "Deepti Jain", location: "Mumbai", rating: 5, text: "Absolutely love the quality of sarees. The silk is premium and the colors are vibrant!" },
-  { name: "Vanika Patel", location: "Ahmedabad", rating: 5, text: "Best handloom fabrics I've found online. Fast delivery and beautiful packaging." },
-  { name: "Annapurna R.", location: "Chennai", rating: 5, text: "The custom stitching service is excellent. Perfect fit every single time!" },
-  { name: "Priya Sharma", location: "Delhi", rating: 5, text: "Amazing collection of block print dupattas. Already ordered my third one!" },
+  { name: "Deepti Jain", location: "Mumbai", rating: 5, text: "Absolutely love the quality of silk fabrics. The texture is premium and the colors are vibrant!" },
+  { name: "Vanika Patel", location: "Ahmedabad", rating: 5, text: "Best handloom cotton fabrics I've found online. Fast delivery and beautiful packaging." },
+  { name: "Annapurna R.", location: "Chennai", rating: 5, text: "The linen fabric quality is excellent. Perfect for my boutique designs every single time!" },
+  { name: "Priya Sharma", location: "Delhi", rating: 5, text: "Amazing collection of block print fabrics. Already ordered my third batch for my store!" },
 ];
 
 const CustomerReviews = () => {
@@ -20,13 +20,13 @@ const CustomerReviews = () => {
     <section id="reviews" className="pt-2 pb-6 md:pt-4 md:pb-10 bg-card scroll-mt-20" ref={ref}>
       <div className="container mx-auto px-4">
         <h2 className={`text-3xl md:text-4xl font-heading text-center mb-2 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          Customer Narratives
+          What Our Customers Say
         </h2>
         <div className={`flex justify-center gap-1 mb-2 ${isVisible ? "animate-fade-up stagger-1" : "opacity-0"}`}>
           {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-gold text-gold" />)}
         </div>
         <p className={`text-center text-sm text-muted-foreground mb-10 ${isVisible ? "animate-fade-up stagger-2" : "opacity-0"}`}>
-          Based on 1830 reviews ⭐
+          Based on 2,500+ reviews ⭐
         </p>
 
         <div className={`relative ${isVisible ? "animate-fade-up stagger-3" : "opacity-0"}`}>

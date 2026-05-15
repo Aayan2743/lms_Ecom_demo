@@ -2,24 +2,22 @@ import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"; 
 
 const categories = [
-  { icon: "👗", name: "Sarees", path: "/sarees", image: "https://i.pinimg.com/736x/d0/eb/cc/d0ebcc838287f2c5bd84dea65a7b3eeb.jpg" },
-  { icon: "🧵", name: "Fabrics", path: "/fabrics", image: "https://i.pinimg.com/736x/c0/ff/35/c0ff355a86cc81c4382a00c33e9379d4.jpg" },
-  { icon: "👘", name: "Kurtas", path: "/kurtas", image: "https://i.pinimg.com/736x/11/54/cc/1154ccb6382b1a231ef9d4ba549bcddb.jpg" },
-  { icon: "🧣", name: "Dupattas", path: "/dupattas", image: "https://i.pinimg.com/1200x/04/ec/53/04ec53cb56607ca5ec2950951fd88446.jpg" },
-  { icon: "✂️", name: "Stitching", path: "/contact", image: "https://i.pinimg.com/1200x/3f/14/b4/3f14b4e94cfac4f5fd836efbc4e1afb3.jpg" }, 
+  { icon: "🧵", name: "Silk Fabrics", path: "/silk-fabrics", image: "https://i.pinimg.com/736x/56/14/81/561481cdf44e31905ab2760bbd033202.jpg" },
+  { icon: "🌿", name: "Cotton Fabrics", path: "/cotton-fabrics", image: "https://i.pinimg.com/1200x/5c/ba/ae/5cbaaec476c9984024ed212a5138b74d.jpg" },
+  { icon: "🧶", name: "Linen Fabrics", path: "/linen-fabrics", image: "https://i.pinimg.com/736x/d9/f4/cb/d9f4cb9581dbe49b1c47ce1f223655f8.jpg" },
+  { icon: "✨", name: "Organza Fabrics", path: "/organza-fabrics", image: "https://i.pinimg.com/736x/59/11/80/591180632783e4ac10876b05e2b3e3bb.jpg" },
+  { icon: "🎀", name: "Georgette Fabrics", path: "/georgette-fabrics", image: "https://i.pinimg.com/736x/62/72/ea/6272ea7225c912087f2c5b1c235a03ea.jpg" },
 ];
 
 const ShopByCategory = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    // 🌟 SPACE FIX: pt-10 ki jagah pt-4 kiya taki upar wale button se gap kam rahe
     <section id="categories" className="w-full pt-4 pb-8 md:pt-6 md:pb-10" ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
         
-        {/* 🌟 ALIGNMENT FIX: text-center w-full lagaya */}
         <h2 className={`text-2xl md:text-4xl font-heading text-center w-full mb-6 md:mb-10 text-foreground ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          Shop by Categories
+          Shop by Fabric Type
         </h2>
         
         <div 
@@ -36,7 +34,6 @@ const ShopByCategory = () => {
               key={cat.name}
               className={`flex flex-col items-center gap-3 md:gap-4 cursor-pointer group min-w-[90px] md:min-w-[120px] snap-center shrink-0 ${isVisible ? `animate-scale-in stagger-${i + 1}` : "opacity-0"}`}
             >
-              {/* 🌟 MOBILE RESPONSIVE IMAGES: w-20 mobile ke liye, w-32 desktop ke liye */}
               <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-[3px] border-transparent group-hover:border-primary transition-all duration-300 shadow-md">
                  <img 
                     src={cat.image} 

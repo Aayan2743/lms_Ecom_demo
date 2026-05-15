@@ -3,24 +3,15 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom"; 
 import { useShop } from "../ShopContext.jsx"; 
 
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
-import product4 from "@/assets/product-4.jpg";
-import product5 from "@/assets/product-5.jpg";
-import product6 from "@/assets/product-6.jpg";
-import product7 from "@/assets/product-7.jpg";
-import product8 from "@/assets/product-8.jpg";
-
 const products = [
-  { id: 101, img: product1, name: "Royal Kanchipuram Silk Saree", price: 12499, originalPrice: 15999, tag: "Bestseller", category: "Sarees" },
-  { id: 301, img: product2, name: "Pastel Embroidered Kurta", price: 2999, originalPrice: 4499, tag: "New", category: "Kurtas" },
-  { id: 401, img: product3, name: "Indigo Block Print Dupatta", price: 1899, originalPrice: 2499, tag: null, category: "Dupattas" },
-  { id: 201, img: product4, name: "Banarasi Silk Fabric", price: 3499, originalPrice: 4999, tag: "Premium", category: "Fabrics" },
-  { id: 102, img: product5, name: "Chanderi Pink Silk Saree", price: 8999, originalPrice: 11999, tag: "Trending", category: "Sarees" },
-  { id: 202, img: product6, name: "Ikat Cotton Fabric", price: 1299, originalPrice: 1799, tag: null, category: "Fabrics" },
-  { id: 302, img: product7, name: "Olive Linen Kurta Set", price: 3799, originalPrice: 5299, tag: "New", category: "Kurtas" },
-  { id: 203, img: product8, name: "Kalamkari Print Fabric", price: 999, originalPrice: 1499, tag: null, category: "Fabrics" },
+  { id: 1001, img: "https://i.pinimg.com/736x/56/14/81/561481cdf44e31905ab2760bbd033202.jpg", name: "Pure Kanchipuram Silk Fabric", price: 2499, originalPrice: 3499, tag: "Bestseller", category: "Silk Fabrics" },
+  { id: 2001, img: "https://i.pinimg.com/1200x/5c/ba/ae/5cbaaec476c9984024ed212a5138b74d.jpg", name: "Handloom Cotton Fabric", price: 899, originalPrice: 1299, tag: "New", category: "Cotton Fabrics" },
+  { id: 2003, img: "https://i.pinimg.com/736x/38/de/80/38de8036daff2e913e5769671989e6ad.jpg", name: "Kalamkari Print Cotton Fabric", price: 999, originalPrice: 1499, tag: null, category: "Cotton Fabrics" },
+  { id: 1002, img: "https://i.pinimg.com/736x/4f/0c/79/4f0c799c67e8be10b14ad150b54f53b4.jpg", name: "Banarasi Silk Brocade Fabric", price: 3499, originalPrice: 4999, tag: "Premium", category: "Silk Fabrics" },
+  { id: 3001, img: "https://i.pinimg.com/736x/d9/f4/cb/d9f4cb9581dbe49b1c47ce1f223655f8.jpg", name: "Premium Linen Fabric", price: 1599, originalPrice: 2199, tag: "Trending", category: "Linen Fabrics" },
+  { id: 2002, img: "https://i.pinimg.com/1200x/b3/46/dc/b346dca6fb0cbcd99a4589c162621ef3.jpg", name: "Ikat Handwoven Cotton Fabric", price: 1299, originalPrice: 1799, tag: null, category: "Cotton Fabrics" },
+  { id: 5001, img: "https://i.pinimg.com/736x/59/11/80/591180632783e4ac10876b05e2b3e3bb.jpg", name: "Organza Fabric", price: 1199, originalPrice: 1699, tag: "New", category: "Organza Fabrics" },
+  { id: 2004, img: "https://i.pinimg.com/1200x/c1/70/8c/c1708cb21db4bcc9f47b7d696a3686a6.jpg", name: "Indigo Block Print Fabric", price: 850, originalPrice: 1200, tag: null, category: "Cotton Fabrics" },
 ];
 
 const ProductCard = ({ product, index, isVisible }) => {
@@ -98,24 +89,27 @@ const ProductGrid = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="products" className="w-full pt-6 pb-2 md:pt-8 md:pb-2" ref={ref}>
-      <div className="container mx-auto px-4 md:px-6">
-        
-        <div className={`w-full text-center mx-auto mb-6 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          <p className="text-primary text-xs md:text-sm uppercase tracking-widest font-medium mb-1 block">Curated for You</p>
-          <h2 className="text-3xl md:text-4xl font-heading inline-block">Our Popular Products</h2>
+    <section id="products" className="pt-10 pb-6 md:pt-16 md:pb-10 scroll-mt-20" ref={ref}>
+      <div className="container">
+        <div className="flex items-center justify-between mb-6 md:mb-10">
+          <div>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] font-semibold mb-1">New Collection</p>
+            <h2 className={`text-2xl md:text-4xl font-heading text-foreground ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+              Trending Fabrics
+            </h2>
+          </div>
+          <Link 
+            to="/shop" 
+            className={`text-sm font-semibold text-primary hover:text-primary/80 transition-colors flex items-center gap-1 ${isVisible ? "animate-fade-up" : "opacity-0"}`}
+          >
+            View All →
+          </Link>
         </div>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
           {products.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} isVisible={isVisible} />
           ))}
-        </div>
-        
-        <div className={`flex justify-center mt-6 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          <Link to="/shop" className="inline-block px-6 py-2.5 md:px-8 md:py-3 border-2 border-primary text-primary text-sm md:text-base font-medium rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 active:scale-[0.97]">
-            View All Products
-          </Link>
         </div>
       </div>
     </section>

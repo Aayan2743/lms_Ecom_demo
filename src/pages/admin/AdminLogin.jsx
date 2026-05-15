@@ -56,7 +56,7 @@ const AdminLogin = () => {
             </div>
             <div>
               <h1 className="font-heading text-2xl text-stone-900">Admin</h1>
-              <p className="font-body text-sm text-stone-500">LM Showroom dashboard</p>
+              <p className="font-body text-sm text-stone-500">FabricForever dashboard</p>
             </div>
           </div>
 
@@ -71,7 +71,7 @@ const AdminLogin = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-xl border border-stone-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
-                placeholder="admin@lmshowroom.com"
+                placeholder="admin@fabricforever.in"
                 required
                 autoComplete="username"
               />

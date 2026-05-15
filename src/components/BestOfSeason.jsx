@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom"; 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import categorySarees from "@/assets/category-sarees.jpg";
-import categoryFabrics from "@/assets/category-fabrics.jpg";
-import categoryKurtas from "@/assets/category-kurtas.jpg";
 
 const items = [
-  { img: categorySarees, label: "Silk Sarees", sub: "Handwoven Collection", path: "/sarees", filterCategory: "Silk" },
-  { img: categoryFabrics, label: "Block Print Fabrics", sub: "Artisan Crafted", path: "/fabrics", filterCategory: "Block Print" },
-  { img: categoryKurtas, label: "Cotton Kurtas", sub: "Everyday Comfort", path: "/kurtas", filterCategory: "Cotton" },
+  { img: "https://i.pinimg.com/736x/56/14/81/561481cdf44e31905ab2760bbd033202.jpg", label: "Premium Silk Fabrics", sub: "Luxury Collection", path: "/silk-fabrics", filterCategory: "Silk" },
+  { img: "https://i.pinimg.com/1200x/5c/ba/ae/5cbaaec476c9984024ed212a5138b74d.jpg", label: "Handloom Cotton Fabrics", sub: "Artisan Crafted", path: "/cotton-fabrics", filterCategory: "Cotton" },
+  { img: "https://i.pinimg.com/736x/d9/f4/cb/d9f4cb9581dbe49b1c47ce1f223655f8.jpg", label: "Premium Linen Fabrics", sub: "Everyday Comfort", path: "/linen-fabrics", filterCategory: "Linen" },
 ];
 
 const BestOfSeason = () => {

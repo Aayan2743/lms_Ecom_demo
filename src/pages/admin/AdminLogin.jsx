@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Lock, Mail, ArrowLeft, Shield, AlertCircle } from "lucide-react";
+import { Lock, Mail, ArrowLeft, Shield, AlertCircle, Eye, EyeOff } from "lucide-react";
 import { useShop } from "../../ShopContext.jsx";
-import { matchAdminCredential } from "../../adminAuth.js";
+import { adminLoginApi } from "../../adminAuth.js";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
   const { login, user, isLoggedIn } = useShop();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({ login: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -18,24 +18,43 @@ const AdminLogin = () => {
     }
   }, [user, isLoggedIn, navigate]);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    const match = matchAdminCredential(email, password);
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      if (match) {
-        login({
-          email: match.email,
-          name: "Admin",
-          role: "admin",
-        });
-        navigate("/admin", { replace: true });
-      } else {
-        setError("Invalid admin email or password.");
+
+    try {
+      const data = await adminLoginApi(form);
+
+      if (!data.status) {
+        setError(data.message || "Invalid credentials");
+        return;
       }
-    }, 400);
+
+      const adminUser = {
+        id: data.data.id,
+        name: data.data.name,
+        email: data.data.email,
+        phone: data.data.phone,
+        role: data.data.role || "admin",
+        avatar: data.data.avatar || "",
+      };
+
+      login(adminUser);
+      navigate("/admin", { replace: true });
+    } catch (err) {
+      const msg =
+        err?.response?.data?.message ||
+        err?.message ||
+        "Login failed. Check backend connectivity.";
+      setError(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -56,7 +75,7 @@ const AdminLogin = () => {
             </div>
             <div>
               <h1 className="font-heading text-2xl text-stone-900">Admin</h1>
-              <p className="font-body text-sm text-stone-500">FabricForever dashboard</p>
+              <p className="font-body text-sm text-stone-500">LM Showroom dashboard</p>
             </div>
           </div>
 
@@ -64,14 +83,15 @@ const AdminLogin = () => {
             <div className="space-y-2">
               <label className="text-sm font-medium text-stone-700 flex items-center gap-2">
                 <Mail className="w-4 h-4 text-stone-400" />
-                Email
+                Email / Username
               </label>
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                name="login"
+                value={form.login}
+                onChange={handleChange}
                 className="w-full rounded-xl border border-stone-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
-                placeholder="admin@fabricforever.in"
+                placeholder="admin@lmshowroom.com"
                 required
                 autoComplete="username"
               />
@@ -81,15 +101,26 @@ const AdminLogin = () => {
                 <Lock className="w-4 h-4 text-stone-400" />
                 Password
               </label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-xl border border-stone-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
-                placeholder="••••••••"
-                required
-                autoComplete="current-password"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={form.password}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-stone-200 px-4 py-3 pr-11 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                  placeholder="••••••••"
+                  required
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-stone-100"
+                  tabIndex={-1}
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
 
             {error && (
@@ -108,14 +139,9 @@ const AdminLogin = () => {
             </button>
           </form>
 
-          <p className="mt-8 text-xs text-center text-stone-400 leading-relaxed">
-            Demo accounts:{" "}
-            <code className="text-stone-600 bg-stone-100 px-1 rounded">admin@lmshowroom.com</code> /{" "}
-            <code className="text-stone-600 bg-stone-100 px-1 rounded">admin123</code>
-            {" · "}
-            <code className="text-stone-600 bg-stone-100 px-1 rounded">test@admin.com</code> /{" "}
-            <code className="text-stone-600 bg-stone-100 px-1 rounded">123456</code>
-          </p>
+          {/* <p className="mt-8 text-xs text-center text-stone-400 leading-relaxed">
+            Backend: <code className="text-stone-600 bg-stone-100 px-1 rounded">http://127.0.0.1:8002/api</code>
+          </p> */}
         </div>
       </div>
     </div>

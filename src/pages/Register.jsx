@@ -90,7 +90,7 @@ const Register = () => {
 
     setIsLoading(true);
     setTimeout(() => {
-      localStorage.setItem("userAuth", JSON.stringify({ 
+      localStorage.setItem("lms_api_user", JSON.stringify({
         email: formData.email, 
         password: formData.password, 
         name: formData.name, 

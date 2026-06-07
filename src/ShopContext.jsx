@@ -22,9 +22,9 @@ function readJson(key, fallback) {
 
 export const ShopProvider = ({ children }) => {
   
-  // 🔥 AUTH STATE - GLOBAL
+  // 🔥 AUTH STATE - GLOBAL (keys synced with src/api.js)
   const [user, setUser] = useState(() => {
-    const savedUser = localStorage.getItem("userAuth");
+    const savedUser = localStorage.getItem("lms_api_user");
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
@@ -183,20 +183,21 @@ export const ShopProvider = ({ children }) => {
     setOrdersState((prev) => [payload, ...prev]);
   }, []);
 
-  // 🔥 AUTH FUNCTIONS
+  // 🔥 AUTH FUNCTIONS (keys synced with src/api.js)
   const login = (userData) => {
-    localStorage.setItem("userAuth", JSON.stringify(userData));
+    localStorage.setItem("lms_api_user", JSON.stringify(userData));
     setUser(userData);
   };
 
   const logout = () => {
-    localStorage.removeItem("userAuth");
+    localStorage.removeItem("lms_api_user");
+    localStorage.removeItem("lms_api_token");
     localStorage.removeItem("rememberedEmail");
     setUser(null);
   };
 
   const updateUser = (userData) => {
-    localStorage.setItem("userAuth", JSON.stringify(userData));
+    localStorage.setItem("lms_api_user", JSON.stringify(userData));
     setUser(userData);
   };
 

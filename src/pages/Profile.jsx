@@ -141,7 +141,7 @@ const Profile = () => {
         const photoData = reader.result;
         setProfilePhotoPreview(photoData);
         const updatedUser = { ...userData, profilePhoto: photoData };
-        localStorage.setItem("userAuth", JSON.stringify(updatedUser));
+        localStorage.setItem("lms_api_user", JSON.stringify(updatedUser));
         setUserData(updatedUser);
         setIsUploading(false);
         setSuccessMsg("Profile photo updated!");
@@ -157,7 +157,7 @@ const Profile = () => {
   const handleRemovePhoto = () => {
     setProfilePhotoPreview(null);
     const updatedUser = { ...userData, profilePhoto: null };
-    localStorage.setItem("userAuth", JSON.stringify(updatedUser));
+    localStorage.setItem("lms_api_user", JSON.stringify(updatedUser));
     setUserData(updatedUser);
     setSuccessMsg("Photo removed");
     setTimeout(() => setSuccessMsg(""), 3000);
@@ -170,7 +170,7 @@ const Profile = () => {
       return;
     }
     const updatedUser = { ...userData, ...editForm };
-    localStorage.setItem("userAuth", JSON.stringify(updatedUser));
+    localStorage.setItem("lms_api_user", JSON.stringify(updatedUser));
     setUserData(updatedUser);
     setIsEditing(false);
     setSuccessMsg("Profile updated!");

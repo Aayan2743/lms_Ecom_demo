@@ -165,7 +165,7 @@ const SignIn = () => {
         }
       } else if (isEmail) {
         if (password.length >= 6) {
-          const savedUser = JSON.parse(localStorage.getItem("userAuth"));
+          const savedUser = JSON.parse(localStorage.getItem("lms_api_user"));
           const isValidRegisteredUser = savedUser && inputValue === savedUser.email && password === savedUser.password;
           const adminMatch = matchAdminCredential(inputValue, password);
           

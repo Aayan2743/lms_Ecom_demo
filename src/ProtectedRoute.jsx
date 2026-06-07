@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  const userAuth = localStorage.getItem("userAuth"); // Check if user is logged in
+  const userAuth = localStorage.getItem("lms_api_user"); // Check if user is logged in
   const location = useLocation(); // Yaad rakho user kahan jana chahta tha
 
   if (!userAuth) {
